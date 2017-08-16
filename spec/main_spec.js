@@ -14,18 +14,39 @@ describe("测试描述", function(){
 
     it("测试用例1", function(){
 
-        var result = main();
-        var expect_string = '';
-        
+        var result = main('95713');
+        var expect_string = '||:|:::|:|:|:::|:::||::||::|:|:|';
+
         expect(expect_string).to.equal(result);
     });
-
     it("测试用例2", function(){
 
-        main();
-        var result = _.flatten(console.log.args).join("\n");
-        var expect_string = '';
+        var result = main('95713-1234');
+        var expect_string = '||:|:::|:|:|:::|:::||::||::::||::|:|::||::|::|:|:|:|';
 
         expect(expect_string).to.equal(result);
     });
+    it("测试用例3", function(){
+
+        var result = main('957131234');
+        var expect_string = '||:|:::|:|:|:::|:::||::||::::||::|:|::||::|::|:|:|:|';
+
+        expect(expect_string).to.equal(result);
+    });
+
+    it("测试用例4", function(){
+
+        var result = main('||:|:::|:|:|:::|:::||::||::|:|:|');
+        var expect_string = '95713';
+
+        expect(expect_string).to.equal(result);
+    });
+    it("测试用例5", function(){
+
+        var result = main('||:|:::|:|:|:::|:::||::||::::||::|:|::||::|::|:|:|:|');
+        var expect_string = '95713-1234';
+
+        expect(expect_string).to.equal(result);
+    });
+
 });
